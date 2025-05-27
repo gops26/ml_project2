@@ -19,10 +19,10 @@ def get_requirements(file_path:str)-> List[str]:
 
 
 setup(
-    name="co2 emissions ",
+    name="ml_project2",
     version="0.0.1",
     description="co2 emissions based on vehicle features",
-    long_description="",
+    long_description="this is my second project",
     author="gopinath", 
     author_email="kgopinath730@gmail.com",
     packages=find_packages(),
