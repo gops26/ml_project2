@@ -23,7 +23,7 @@ class DataTransformation:
     def get_preprocessing_obj(self):
         try:
             num_features = ['engine_size', 'cylinders',
-                            'fuel_consumption', 'co2_emissions']
+                            'fuel_consumption']
             cat_features = ['fuel_type']
 
             num_pipeline = Pipeline(
@@ -61,10 +61,10 @@ class DataTransformation:
 
             target_feature_name = "co2_emissions"
 
-            input_feature_train = train_df.drop(target_feature_name)
+            input_feature_train = train_df.drop(columns=[target_feature_name], axis=1)
             target_feature_train = train_df[target_feature_name]
 
-            input_feature_test = test_df.drop(target_feature_name)
+            input_feature_test = test_df.drop(columns=[target_feature_name], axis=1 )
             target_feature_test = test_df[target_feature_name]
 
             logging.info("applying transformation on data")
