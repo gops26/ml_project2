@@ -28,10 +28,10 @@ class ModelTrainer:
         
             models = {
                 "DecisionTreeRegressor":DecisionTreeRegressor(),
-                "linearregression":LinearRegression(),
-                "ridge":Ridge(),
-                "lasso":Lasso(),
-                "kneighborsregressor":KNeighborsRegressor(),
+                "LinearRegression":LinearRegression(),
+                "Ridge":Ridge(),
+                "Lasso":Lasso(),
+                "KNeighborsRegressor":KNeighborsRegressor(),
                 "AdaBoostRegressor":AdaBoostRegressor(),
                 "GradientBoostingRegressor":GradientBoostingRegressor(),
                 "RandomForestRegressor":RandomForestRegressor(),
@@ -58,6 +58,8 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },
                 "LinearRegression":{},
+                "Ridge":{},
+                "Lasso":{},
                 "XGBRegressor":{
                     'learning_rate':[.1,.01,.05,.001],
                     'n_estimators': [8,16,32,64,128,256]
@@ -71,8 +73,14 @@ class ModelTrainer:
                     'learning_rate':[.1,.01,0.5,.001],
                     # 'loss':['linear','square','exponential'],
                     'n_estimators': [8,16,32,64,128,256]
-                }
+                },
                 
+                "KNeighborsRegressor":{
+                    "n_neighbors":[2,3,4,5,6],
+                    "algorithm":["ball_tree", "kd_tree", "brute"],
+                    "weights":["uniform", "distance"],
+                    "leaf_size":[10,20,30,40,50]
+                }
             }
 
             model_report = evaluate_model(X_train, X_test, y_train, y_test, models, params )

@@ -38,7 +38,7 @@ def evaluate_model(X_train, X_test, y_train, y_test, models:dict, param:dict):
             y_pred_train = model.predict(X_train)
             y_pred_test = model.predict(X_test)
 
-            train_score = r2_score(y_test, y_pred_train)
+            train_score = r2_score(y_train, y_pred_train)
             test_score = r2_score(y_test, y_pred_test)
             logging.info(f"model evaluation finished for  {model_name}")
 
