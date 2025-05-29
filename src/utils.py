@@ -1,4 +1,4 @@
-import dill
+import dill,pickle
 import os,sys
 from src.logger import logging
 from src.exceptions import CustomException
@@ -15,6 +15,15 @@ def save_object(filepath:str, obj:any):
         logging.info(f"saved object{obj.__str__} to filepath {filepath} ") 
     except Exception as e:
         raise CustomException(e,sys)
+    
+
+def load_object(filepath):
+    try:
+        with open(filepath, "rb") as f:
+            obj = pickle.load(f)
+        return obj
+    except Exception as e:
+        raise CustomException(e, sys)
     
 def evaluate_model(X_train, X_test, y_train, y_test, models:dict, param:dict):
     try:

@@ -1,0 +1,29 @@
+<form action="{{ url_for('predict_datapoint') }}" method="post">
+    <div>
+        <label for="engine_size">Engine Size:</label>
+        <input type="number" step="any" id="engine_size" name="engine_size" required>
+    </div>
+    <div>
+        <label for="cylinders">Cylinders (1-10):</label>
+        <input type="number" id="cylinders" name="cylinders" min="1" max="10" required>
+    </div>
+    <div>
+        <label>Fuel Type:</label>
+        <input type="radio" id="fuel_type_z" name="fuel_type" value="z" required>
+        <label for="fuel_type_z">Z</label>
+        <input type="radio" id="fuel_type_d" name="fuel_type" value="d">
+        <label for="fuel_type_d">D</label>
+        <input type="radio" id="fuel_type_x" name="fuel_type" value="x">
+        <label for="fuel_type_x">X</label>
+        <input type="radio" id="fuel_type_e" name="fuel_type" value="e">
+        <label for="fuel_type_e">E</label>
+    </div>
+    <div>
+        <label for="fuel_consumption">Fuel Consumption:</label>
+        <input type="number" id="fuel_consumption" name="fuel_consumption" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+    <h2>
+       THE  prediction is {{result}}
+    </h2>
