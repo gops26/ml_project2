@@ -26,7 +26,7 @@ def evaluate_model(X_train, X_test, y_train, y_test, models:dict, param:dict):
             para = param[model_name]
 
             logging.info(f"grid search cv begins for {model_name}")
-
+            
             gs = GridSearchCV(model, param_grid=para)
             gs.fit(X_train, y_train)
             

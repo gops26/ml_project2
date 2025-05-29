@@ -23,13 +23,9 @@ class ModelTrainer:
     def initiate_model_trainer(self, trainarr, testarr):
         logging.info("model trainer initiated")
         try:
-            X_train,y_train,X_test, y_test = (
-                trainarr[: :-1],
-                trainarr[: -1],
-                testarr[: :-1],
-                testarr[: -1]
-            )
-
+            X_train, y_train = trainarr[:, :-1], trainarr[:, -1]
+            X_test, y_test = testarr[:, :-1], testarr[:, -1]
+        
             models = {
                 "DecisionTreeRegressor":DecisionTreeRegressor(),
                 "linearregression":LinearRegression(),
