@@ -5,6 +5,8 @@ from src.exceptions import CustomException
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
 import sys
+import numpy as np
+
 
 def save_object(filepath:str, obj:any):
     try:

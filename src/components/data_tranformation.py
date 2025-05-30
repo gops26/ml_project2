@@ -34,7 +34,7 @@ class DataTransformation:
 
             cat_pipeline = Pipeline(
                 steps=[
-                    ("onehotencoder", OneHotEncoder())
+                    ("onehotencoder", OneHotEncoder(handle_unknown='ignore',categories='auto'))
                 ]
             )
 

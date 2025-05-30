@@ -1,4 +1,5 @@
-import pandas as pd, numpy as np
+import pandas as pd
+import numpy as np
 from src.utils import load_object
 import sys, os
 from src.exceptions import CustomException
@@ -6,10 +7,12 @@ from src.exceptions import CustomException
 class PredictPipeline:
     def __init__(self):
         pass
-    def predict(self,features ):
+    def predict(self,input_feature ):
         try:
             preprocesser_filepath=os.path.join("artifacts","preprocessor.pkl")
             model_filepath=os.path.join("artifacts","model.pkl")
+            preprocesser = load_object(preprocesser_filepath)
+            features = preprocesser.transform(input_feature)
             model = load_object(model_filepath)
             pred = model.predict(features) 
             return pred
